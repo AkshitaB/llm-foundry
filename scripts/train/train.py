@@ -396,6 +396,13 @@ def main(cfg: DictConfig) -> Trainer:
             tokenizer,
             train_cfg.device_train_batch_size,
         )
+        import pdb
+        pdb.set_trace()
+        from olmo.data import build_train_dataloader
+
+        train_loader = build_train_dataloader(
+            train_cfg,
+        )
     except ContextualError as e:
         if mosaicml_logger is not None:
             e.location = TrainDataLoaderLocation
